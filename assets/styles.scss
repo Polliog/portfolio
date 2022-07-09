@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400&family=Inconsolata:wght@300&display=swap');
+
+
+$primary: #f5fa93;
+$body-background-color: #090809;
+@import "../node_modules/bulma/bulma";
+
+html, body {
+  height: 100%;
+  background-color: $body-background-color;
+}
+
+body {
+  margin: 0;
+  font-family: 'Epilogue', sans-serif;
+  //font-weight: 700 !important;
+}
+
+html {
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+//https://luyu.co/
+//https://agency.framer.website/
+
+.home-section {
+  .columns {
+    .title {
+      position: relative;
+      color: white;
+      font-size: 72px;
+
+      > h1 {
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 5rem;
+
+        &.sticky {
+          position: sticky;
+        }
+
+        &:first-letter {
+          color: $primary;
+        }
+      }
+    }
+
+    .content {
+      color: white;
+      font-size: 20px;
+    }
+  }
+}
+
+.section-title {
+  font-size: 72px;
+  color: white;
+
+  &:first-letter {
+    color: $primary;
+  }
+}
+
+.welcome {
+  font-family: 'Inconsolata', monospace !important;
+}
+
+.column-h {
+  overflow: hidden;
+  width: max-content;
+}
+
+.p-card-container {
+  padding-bottom: 10rem;
+  display: flex;
+  justify-content: space-around;
+  column-gap: 5px;
+
+  .p-card {
+    overflow: hidden;
+    display: flex;
+    cursor: pointer;
+    padding: 0;
+    color: white;
+    position: relative;
+    height: 385px;
+    width: 305px;
+    border-radius: .5rem;
+    transition-duration: .2s;
+
+    .p-card-content {
+      padding: 1rem 1rem;
+      height: 100%;
+      width: 100%;
+      transition-duration: .4s;
+      background: linear-gradient(
+                      hsl(0 0% 0% / 0),
+                      hsl(20 0% 0% / 0.2) 20%,
+                      hsl(0 0% 0% / 0.7),
+      );
+
+      .rc {
+        padding-top: 100%;
+        transition-duration: .4s;
+        transform: translateY(3rem);
+
+        .p-name {
+          font-size: 32px;
+          position: relative;
+          width: max-content;
+          color: white;
+          transition-duration: .3s;
+
+
+          &::after {
+            left: 0;
+            bottom: 0;
+            position: absolute;
+            width: 0;
+            content: "";
+            height: 4px;
+            transition-duration: .3s;
+            background-color: $primary;
+          }
+        }
+
+        .p-description {
+          padding-top: 5px;
+          height: 100px;
+          overflow: hidden;
+        }
+
+        .p-button {
+          margin-top: 7px;
+        }
+      }
+    }
+
+
+    @media (hover: none) {
+      .p-card-content {
+        background: linear-gradient(
+                        hsl(0 0% 0% / 0),
+                        hsl(20 0% 0% / 0.4) 20%,
+                        hsl(0 0% 0% / 0.7),
+        );
+
+        .rc {
+          transform: translateY(-7rem);
+
+          .p-name {
+            &:first-letter {
+              color: $primary;
+            }
+
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    @media (hover: hover) {
+      &:hover, &:focus-within {
+        border: 3px solid $primary;
+        transition-delay: .4s;
+
+        .p-card-content {
+          background: linear-gradient(
+                          hsl(0 0% 0% / 0),
+                          hsl(20 0% 0% / 0.4) 20%,
+                          hsl(0 0% 0% / 0.7),
+          );
+
+          .rc {
+            transition-delay: .3s;
+            transform: translateY(-7rem);
+
+            .p-name {
+              &:first-letter {
+                color: $primary;
+              }
+
+              &::after {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+    &:focus-within {
+      border: 3px solid $primary;
+      transition-delay: 0s;
+    }
+    &:focus, &:focus-visible{
+      outline: none;
+    }
+  }
+
+  @media (max-width: 965px) {
+    justify-content: space-between;
+    row-gap: 1rem;
+    margin: 1rem;
+
+    .p-card {
+      height: 305px;
+      width: 225px;
+      row-gap: .5rem;
+    }
+  }
+
+  @media (max-width: 518px) {
+    justify-content: center;
+    row-gap: .5rem;
+  }
+}
+
+.p-navbar-menu {
+  flex-grow: 1;
+  flex-shrink: 0;
+  align-items: stretch;
+  display: flex;
+
+  .navbar-end {
+    align-items: stretch;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+
+    .navbar-item {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.container {
+  transition-duration: .2s;
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    margin: 0 1rem;
+  }
+}
+
+section:focus, section:focus-visible{
+  outline: none;
+}
+
+a {
+  transition-duration: .2s;
+  color: #f5fa93;
+
+  &:hover {
+    color: #f5fa93;
+    text-decoration: #f5fa93 solid underline;
+  }
+}
